@@ -1,12 +1,11 @@
-import React from 'react';
-import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
+import React from "react";
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
+function DishDetail( props ) {
 
-    function RenderDish({dish}) {
-
-        if (dish != null) {
-    
-            const dishComments = dish.comments.map((comment) => {
+  const dishComments = props.comments.map((comment) => {
                 comment.date = new Date()
                 return (
                   <div key={comment.id} className="col">
@@ -15,33 +14,34 @@ import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
                   </div>
                 );
               });
-    
-          return (
-            <div className="row">
-              <Card className="col-12 col-md-5 m-1">
-                <CardImg width="100%" object src={dish.image} alt={dish.name} />
-                <CardBody>
-                  <CardTitle>{dish.name}</CardTitle>
-                  <CardText>{dish.description}</CardText>
-                </CardBody>
-              </Card>
-              <Card className="col-12 col-md-5 m-1">
-                <CardTitle>Comments</CardTitle>
-                  <CardText>{dishComments}</CardText>
-              </Card>
-            </div>
-          );
-        } else {
-          return <div></div>;
-        }
-      }
 
-    const DishDetail = (props) => {
-        return (
-            <div>
-                <RenderDish dish={props.selectedDish}/>
-            </div>
-        )
-    };
+  return (
+    <div className="container">
+      <div className="row">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>{props.dish.name}</h3>
+                        <hr />
+                    </div>                
+                </div>
+      <div className="row">
+        <Card className="col-12 col-md-5 m-1">
+          <CardImg width="100%" object src={props.dish.image} alt={props.dish.name} />
+          <CardBody>
+            <CardTitle>{props.dish.name}</CardTitle>
+            <CardText>{props.dish.description}</CardText>
+          </CardBody>
+        </Card>
+        <Card className="col-12 col-md-5 m-1">
+          <CardTitle>Comments</CardTitle>
+          <CardText>{dishComments}</CardText>
+        </Card>
+      </div>
+    </div>
+  );
+}
 
 export default DishDetail;
