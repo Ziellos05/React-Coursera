@@ -11,7 +11,17 @@ import { LEADERS } from "../shared/leaders";
 import Home from "./HomeComponent";
 import DishDetail from "./DishDetailComponent";
 import About from "./AboutComponent";
-import { Routes, Route } from "react-router";
+import { Routes, Route} from 'react-router-dom'
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders
+  }
+}
 
 class Main extends Component {
   constructor(props) {
@@ -31,15 +41,15 @@ class Main extends Component {
   render() {
 
     const HomePage = () => {
-      return <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-      promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-      leader={this.state.leaders.filter((leader) => leader.featured)[0]}/>;
+      return <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
+      promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
+      leader={this.props.leaders.filter((leader) => leader.featured)[0]}/>;
     };
 
     const DishWithId = () => {
       return(
-          <DishDetail dish={this.state.dishes[(window.location.pathname).substr(-1)]}
-          comments={this.state.comments.filter((comment) => comment.dishId === parseInt(((window.location.pathname).substr(-1)),10))} />
+          <DishDetail dish={this.props.dishes[(window.location.pathname).substr(-1)]}
+          comments={this.props.comments.filter((comment) => comment.dishId === parseInt(((window.location.pathname).substr(-1)),10))} />
       );
     };
 
@@ -71,4 +81,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default connect(mapStateToProps)(Main);
