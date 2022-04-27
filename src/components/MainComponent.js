@@ -1,16 +1,11 @@
 import React, { Component } from "react";
+import Home from "./HomeComponent";
+import About from "./AboutComponent";
 import Menu from "./MenuComponent";
-import "../App.css";
+import Contact from "./ContactComponent";
+import DishDetail from "./DishDetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import Contact from "./ContactComponent";
-import { DISHES } from "../shared/dishes";
-import { COMMENTS } from "../shared/comments";
-import { PROMOTIONS } from "../shared/promotions";
-import { LEADERS } from "../shared/leaders";
-import Home from "./HomeComponent";
-import DishDetail from "./DishDetailComponent";
-import About from "./AboutComponent";
 import { Routes, Route} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addComment } from '../redux/ActionCreators';
@@ -31,15 +26,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dishes: DISHES,
-      comments: COMMENTS,
-      promotions: PROMOTIONS,
-      leaders: LEADERS
-    };
-  }
 
   onDishSelect(dishN) {
     this.setState({ dishId: dishN });
@@ -69,12 +55,12 @@ class Main extends Component {
             <Route
               exact
               path="/aboutus"
-              element={<About leaders={this.state.leaders}/>}
+              element={<About leaders={this.props.leaders}/>}
             />
             <Route
               exact
               path="/menu"
-              element={<Menu dishes={this.state.dishes} />}
+              element={<Menu dishes={this.props.dishes} />}
             />
             <Route path='/menu/:dishId' element={<DishWithId />} />
             <Route
