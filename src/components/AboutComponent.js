@@ -12,14 +12,18 @@ import {
   CardSubtitle
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { Fade } from 'react-animation-components';
+import { baseUrl } from '../shared/baseUrl';
+import { Loading } from './LoadingComponent';
 
 function About(props) {
-  const leaders = props.leaders.map((leader) => {
+  const leaders = props.leaders.leaders.map((leader) => {
     return (
+      
         <Card>
             <div className="row">
                 <div className="col-md-4">
-        <CardImg width="100%" object src={leader.image} alt={leader.name} />
+        <CardImg width="100%" object src={baseUrl + leader.image} alt={leader.name} />
         </div>
         <div className="col-md-8">
           <CardBody>
@@ -36,6 +40,28 @@ function About(props) {
         </Card>
     );
   });
+
+  if (props.leaders.isLoading) {
+    return(
+        <div className="container">
+            <div className="row">            
+                <Loading />
+            </div>
+        </div>
+    );
+}
+else if (props.leaders.errMess) {
+    return(
+        <div className="container">
+            <div className="row"> 
+                <div className="col-12">
+                    <h4>{props.leaders.errMess}</h4>
+                </div>
+            </div>
+        </div>
+    );
+}
+else
 
   return (
     <div className="container">
@@ -113,7 +139,9 @@ function About(props) {
           <h2>Corporate Leadership</h2>
         </div>
         <div className="col-12">
-          <Media list>{leaders}</Media>
+          
+          <Media list><Fade in>{leaders}</Fade></Media>
+          
         </div>
       </div>
     </div>

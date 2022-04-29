@@ -20,21 +20,6 @@ class Contact extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      firstname: "",
-      lastname: "",
-      telnum: "",
-      email: "",
-      agree: false,
-      contactType: "Tel.",
-      message: "",
-      touched: {
-        firstname: false,
-        lastname: false,
-        telnum: false,
-        email: false,
-      },
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
@@ -52,7 +37,8 @@ class Contact extends Component {
 
   handleSubmit(values) {
     console.log("Current State is: " + JSON.stringify(values));
-    alert("Current State is: " + JSON.stringify(values));
+    this.props.postFeedback(this.props.feedbackId, values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
+    alert("Your information is:" + JSON.stringify(values));
     // event.preventDefault();
   }
 
