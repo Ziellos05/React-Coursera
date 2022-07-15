@@ -8,12 +8,12 @@ function RenderMenuItem({ dish, deleteFavorite }) {
     return(
         <Media tag="li">
             <Media left middle>
-                <Media object src={baseUrl + dish.image} alt={dish.name} />
+                <Media object src={baseUrl + dish._id.image} alt={dish._id.name} />
             </Media>
             <Media body className="ml-5">
-                <Media heading>{dish.name}</Media>
-                <p>{dish.description}</p>
-                <Button outline color="danger" onClick={() => deleteFavorite(dish._id)}>
+                <Media heading>{dish._id.name}</Media>
+                <p>{dish._id.description}</p>
+                <Button outline color="danger" onClick={() => deleteFavorite(dish._id._id)}>
                     <span className="fa fa-times"></span>
                 </Button>
             </Media>
@@ -44,8 +44,10 @@ const Favorites = (props) => {
     else if (props.favorites.favorites) {
 
         const favorites = props.favorites.favorites.dishes.map((dish) => {
+            console.log('Dish:')
+            console.log(dish._id._id)
             return (
-                <div key={dish._id} className="col-12 mt-5">
+                <div key={dish._id._id} className="col-12 mt-5">
                     <RenderMenuItem dish={dish} deleteFavorite={props.deleteFavorite} />
                 </div>
             );
