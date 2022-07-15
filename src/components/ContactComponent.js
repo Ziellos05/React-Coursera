@@ -30,7 +30,7 @@ class Contact extends Component {
             <div className="container">
                 <div className="row">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to='/home'><div className='nav-color'>Home</div></Link></BreadcrumbItem>
                         <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                     </Breadcrumb>
                     <div className="col-12">
@@ -45,12 +45,12 @@ class Contact extends Component {
                     <div className="col-12 col-sm-4 offset-sm-1">
                             <h5>Our Address</h5>
                             <address>
-                            121, Clear Water Bay Road<br />
-                            Clear Water Bay, Kowloon<br />
-                            HONG KONG<br />
-                            <i className="fa fa-phone"></i>: +852 1234 5678<br />
-                            <i className="fa fa-fax"></i>: +852 8765 4321<br />
-                            <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+                            A portal between Xen and Earth, Black Mesa<br />
+                            Black Mesa, not a copy of Aperture Science<br />
+                            Moving to the City 17<br />
+                            <i className="fa fa-phone"></i>: +57 3167178288<br />
+                            <i className="fa fa-fax"></i>: Who uses fax on 2022?<br />
+                            <i className="fa fa-envelope"></i>: <a href="mailto:rolandandresortega@gmail.com">rolandandresortega@gmail.com</a>
                             </address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
@@ -59,9 +59,9 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
-                            <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
-                            <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
+                            <a role="button" className="btn fb-color" href="https://github.com/Ziellos05"><i className="fa fa-github"></i> GitHub</a>
+                            <a role="button" className="btn bf-color" href="https://www.linkedin.com/in/roland-andr%C3%A9s-ortega-ayala/"><i className="fa fa-linkedin"></i> LinkedIn</a>
+                            <a role="button" className="btn fb-color" href="mailto:rolandandresortega@gmail.com"><i className="fa fa-envelope-o"></i> Email</a>
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@ class Contact extends Component {
                             </Row>
                             <Row className="form-group">
                                 <Col md={{size:10, offset: 2}}>
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" className='bf-color'>
                                     Send Feedback
                                     </Button>
                                 </Col>

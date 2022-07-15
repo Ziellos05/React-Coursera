@@ -10,7 +10,7 @@ import { baseUrl } from '../shared/baseUrl';
                 <Link to={`/menu/${dish._id}`} >
                     <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>
-                        <CardTitle>{dish.name}</CardTitle>
+                        <CardTitle color='dark'><div className='nav-color'>{dish.name}</div></CardTitle>
                     </CardImgOverlay>
                 </Link>
             </Card>
@@ -50,7 +50,7 @@ import { baseUrl } from '../shared/baseUrl';
                 <div className="container">
                     <div className="row">
                         <Breadcrumb>
-                            <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to='/home'><div className='nav-color'>Home</div></Link></BreadcrumbItem>
                             <BreadcrumbItem active>Menu</BreadcrumbItem>
                         </Breadcrumb>
                         <div className="col-12">

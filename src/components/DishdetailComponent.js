@@ -18,7 +18,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                         <Card>
                             <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                             <CardImgOverlay>
-                                <Button outline color="primary" onClick={() => favorite ? console.log('Already favorite') : postFavorite(dish._id)}>
+                                <Button outline color="dark" onClick={() => favorite ? console.log('Already favorite') : postFavorite(dish._id)}>
                                     {favorite ?
                                         <span className="fa fa-heart"></span>
                                         : 
@@ -94,7 +94,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
         render() {
             return(
             <div>
-                <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
+                <Button outline color='dark' onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                 <ModalBody>
@@ -118,7 +118,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                                         rows="6" className="form-control" />
                             </Col>
                         </Row>
-                        <Button type="submit" className="bg-primary">
+                        <Button type="submit" className="bf-color">
                             Submit
                         </Button>
                     </LocalForm>
@@ -154,7 +154,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                 <div className="container">
                     <div className="row">
                         <Breadcrumb>
-                            <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to='/menu'><div className='nav-color'>Menu</div></Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                         </Breadcrumb>
                         <div className="col-12">
