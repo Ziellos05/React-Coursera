@@ -155,7 +155,7 @@ class Header extends Component {
           <div className="container">
             <div className="row row-header">
               <div className="col-12 col-sm-6">
-                <h1>Gordon Freeman Gourment</h1>
+                <h1>Gordon Freeman Gourmet</h1>
                 <p>
                 Perhaps you have wondered why Half Life 3 has not been released, the answer is simple, Gordon Freeman, the chosen one, is tired of running with a bar through vents and doing bunny jumps around the field, he has decided that it is time to put his feet back on the ground and have a real job, just like me, Ziellos05.
                 </p>
