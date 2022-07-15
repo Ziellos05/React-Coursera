@@ -42,13 +42,22 @@ class Header extends Component {
     }
 
     render() {
+        const myStyle={
+            backgroundImage: 
+     "url('https://assets2.rockpapershotgun.com/black-mesa-xen-c.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/black-mesa-xen-c.jpg')",
+            height:'275px',
+            backgroundPosition: 'center 5%',
+            marginTop:'-40px',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+        };
         return(
             <React.Fragment>
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
-                            <img src="assets/images/logo.png" height="30" width="41"
+                            <img src="assets/images/Half-Life-logo.png" height="35" width="35"
                                 alt="Ristorante Con Fusion" />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -107,7 +116,7 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
+                <Jumbotron style={myStyle}>
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
